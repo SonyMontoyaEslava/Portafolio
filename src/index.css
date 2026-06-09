@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-offset: 4.75rem;
+  }
+
+  @media (max-width: 640px) {
+    :root {
+      --header-offset: 4rem;
+    }
+  }
+
+  html {
+    @apply scroll-smooth;
+    /* Cada sección mide exactamente un viewport (un único punto de snap),
+       por eso el snap es estricto y el scroll se detiene siempre en una
+       sección a pantalla completa, sin posiciones intermedias. */
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+      scroll-snap-type: none;
+    }
+  }
+
+  body {
+    @apply min-h-screen font-sans text-slate-100 antialiased overflow-x-hidden;
+    background:
+      radial-gradient(circle at top left, rgba(127, 156, 255, 0.14), transparent 24%),
+      radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.12), transparent 20%),
+      radial-gradient(circle at bottom center, rgba(94, 124, 255, 0.1), transparent 28%),
+      linear-gradient(180deg, #050814 0%, #08111f 100%);
+    color: #dbe3f3;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(127, 156, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(127, 156, 255, 0.08) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.4;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 88%);
+  }
+
+  /* Las secciones pueden tener scroll interno en pantallas pequeñas;
+     ocultamos su barra para mantener el aspecto limpio del snap. */
+  main > section {
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+  }
+
+  main > section::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::selection {
+    @apply bg-skyglow-600 text-white;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}

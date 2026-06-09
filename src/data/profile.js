@@ -63,7 +63,7 @@ export const experienceSummary = {
 
 export const experience = [
   {
-    period: "Actualidad",
+    period: "2023 - Actualidad",
     title: "Saco Oliveros",
     role: "Programador",
     bullets: [

@@ -177,8 +177,7 @@ export const skills = [
 export const contact = {
   eyebrow: "Contacto",
   title: "Datos de contacto e idiomas",
-  text:
-    "Si necesitas un perfil que combine desarrollo web, mantenimiento de software, integración de APIs y enfoque en automatización, este portafolio resume mi trayectoria.",
+  text: "",
   email: "sony.montoya.12@gmail.com",
   phone: "+51 947 119 818",
   location: "Lima, Perú",
